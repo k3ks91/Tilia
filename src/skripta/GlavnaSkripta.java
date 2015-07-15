@@ -1,5 +1,7 @@
 package skripta;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -7,13 +9,17 @@ import java.util.concurrent.TimeUnit;
 import objekti.FillForm2O;
 import objekti.FillFormO;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.security.UserAndPassword;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
@@ -21,8 +27,8 @@ import org.testng.annotations.Test;
 
 public class GlavnaSkripta {
 	
+	//private static RemoteWebDriver driver;
 	private static RemoteWebDriver driver;
-	
 	/* 
 	 * 
 	 */
@@ -30,21 +36,26 @@ public class GlavnaSkripta {
 	public static void Test (
 			int Predsolski, int Osnovnosolski, int Srednjesolski, int Studentnje, 
 			String Paket
-			) throws InterruptedException{
-		//DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-        //capabilities.setCapability("version", "38");
-        //capabilities.setCapability("platform", Platform.WIN8_1);
-        // Create the connection to Sauce Labs to run the tests
-        //this.driver = new RemoteWebDriver(
-        //        new URL("http://k3ks91:bc64233e-bf6d-4462-a039-57c4ab669713@ondemand.saucelabs.com:80/wd/hub"),
-        //        capabilities);
+			) throws InterruptedException, MalformedURLException{
 		
-		WebDriver driver = new FirefoxDriver();
+		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+        capabilities.setCapability("version", "38");
+        capabilities.setCapability("platform", Platform.WIN8_1);
+        // Create the connection to Sauce Labs to run the tests
+        driver = new RemoteWebDriver(
+                new URL("http://k3ks91:bc64233e-bf6d-4462-a039-57c4ab669713@ondemand.saucelabs.com:80/wd/hub"),
+                capabilities);
+		
+		//WebDriver driver = new FirefoxDriver();
 		
 		System.out.println("");
 		System.out.println("Zagon spletne strani");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.get("https://sola.beta.zav-tilia.si");
+		//WebDriverWait wait = new WebDriverWait(driver, 10);
+		//Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+		driver.get("https://dlabs:pustimenamiru@sola.beta.zav-tilia.si");
+		//http://username:password@url
+		//alert.authenticateUsing(new UserAndPassword("dlabs", "pustimenamiru"));
 		driver.manage().window().maximize();
 		Thread.sleep(2000);
 		
