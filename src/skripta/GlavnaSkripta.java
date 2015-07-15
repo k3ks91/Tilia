@@ -255,13 +255,13 @@ public class GlavnaSkripta {
 		driver.switchTo().window(childid);
 		System.out.println(driver.getTitle());
 		*/
-		if(driver.getCurrentUrl().contains("https://sola.beta.zav-tilia.si/uploadZip/")){
+		/*if(driver.getCurrentUrl().contains("https://sola.beta.zav-tilia.si/uploadZip/")){
 			System.out.println("Pogodbo je mozno pridobiti");
 		}
 		else {
 			System.out.println("Pogodbe NI mozno pridobiti");
 			System.out.println(driver.getCurrentUrl());
-		}
+		}*/
 		System.out.println("**********Test Koncan**********");
 		driver.quit();
 	}
