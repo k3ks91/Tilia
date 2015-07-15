@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name= "Automation Test">
+    <test name="Smoke Testcases">
+    	<classes>
+    	    <!-- Zakomentiraj kar nočeš da laufa -->	
+    	    <class name="parametri.Test1"></class>
+    	     
+    	</classes>
+    	<packages>        	
+    	</packages>
+    </test>
+</suite>
